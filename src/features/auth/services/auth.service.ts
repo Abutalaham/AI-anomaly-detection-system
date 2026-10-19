@@ -65,7 +65,10 @@ export class AuthService {
    */
   async signInWithOAuth(provider: 'google' | 'github'): Promise<Result<{ provider: string }>> {
     try {
-      const redirectUrl = `${window.location.origin}/dashboard`;
+      const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+        ? import.meta.env.BASE_URL
+        : `${import.meta.env.BASE_URL}/`;
+      const redirectUrl = `${window.location.origin}${baseUrl}dashboard`;
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {

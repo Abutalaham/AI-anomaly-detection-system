@@ -13,6 +13,8 @@ import { useStreamSimulator } from '@/hooks/useStreamSimulator';
 import { AnomalyChart } from '@/components/charts/AnomalyChart';
 import { AnomalyScoreMeter } from '@/components/charts/AnomalyScoreMeter';
 
+import { isSupabaseConfigured } from '@/lib/supabase';
+
 // ─── Stream config mapper ─────────────────────────────────────────────────────
 
 // Baseline and noiseStd are per-kind values that feel realistic
@@ -94,9 +96,17 @@ export const Dashboard: React.FC = () => {
       {/* Page Title & Controls */}
       <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">
-            Live Telemetry Dashboard
-          </h1>
+          <div className="flex items-center gap-2.5">
+            <h1 className="text-2xl font-bold tracking-tight text-foreground">
+              Live Telemetry Dashboard
+            </h1>
+            {!isSupabaseConfigured && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-accent-cyan/15 text-accent-cyan border border-accent-cyan/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan animate-pulse" />
+                Demo mode
+              </span>
+            )}
+          </div>
           <p className="text-xs text-muted-foreground">
             Monitoring active time-series streams with sub-second statistical
             detection

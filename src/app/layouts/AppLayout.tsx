@@ -11,11 +11,13 @@ import {
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { ROUTES } from '@/constants';
 
+import { useAuth } from '@/features/auth/hooks/useAuth';
+import { isSupabaseConfigured } from '@/lib/supabase';
+
 export const AppLayout: React.FC = () => {
   const location = useLocation();
-
-  // For initial Phase 1 foundation, we surface the demo fallback indicator
-  const isDemoMode = true;
+  const { isDemoUser } = useAuth();
+  const isDemoMode = !isSupabaseConfigured || isDemoUser;
 
   const navLinks = [
     { label: 'Dashboard', path: ROUTES.DASHBOARD, icon: LayoutDashboard },

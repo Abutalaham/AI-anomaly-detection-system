@@ -10,8 +10,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
     "test": "vitest run",
-    "check": "npm run typecheck && npm run test && npm run build",
-    "deploy": "npm run build && gh-pages -d dist"
+    "check": "npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",

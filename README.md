@@ -33,7 +33,7 @@ A modern Vite + React application that visualizes real‑time anomaly detection 
 
 ## Deployment
 
-- **Frontend** – Deployed to **GitHub Pages**. The GitHub Actions workflow builds the app and pushes the `dist/` folder to the `gh-pages` branch.
+- **Frontend** – Deployed to **GitHub Pages**. GitHub Actions automatically builds the app and deploys to GitHub Pages.
 - **Backend** – Supabase provides the API, authentication, and storage. No separate server is required.
 
 ## Environment Variables
