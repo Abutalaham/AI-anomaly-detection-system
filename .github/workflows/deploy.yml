@@ -20,8 +20,8 @@ jobs:
         run: |
           echo "VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }}" >> $GITHUB_ENV
           echo "VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }}" >> $GITHUB_ENV
-        uses: actions/setup-node@v4
-        with:
+
+
           node-version: '20'
           cache: 'npm'
 
